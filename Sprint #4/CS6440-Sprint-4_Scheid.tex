@@ -1,0 +1,45 @@
+\documentclass[letterpaper]{jdf}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@verbatim}
+  {\verbatim@font}
+  {\verbatim@font\small}
+  {}{}
+\makeatother
+
+\pdfstringdefDisableCommands{ \def\\{} }
+
+%\addbibresource{references.bib}
+
+\author{Geoff Scheid}
+\email{gscheid3@gatech.edu}
+\title{CS 6440 - Intro to Health Informatics:\\Sprint 4 - Status Check In 2}
+
+\begin{document}
+
+\maketitle
+
+\section{Accomplishments}
+Over the past two weeks, I have accomplished the following tasks:
+\begin{itemize}
+    \item Completed a refresher course on Angular fundamentals focusing on reactive forms 
+    \item Investigated an appropriate backend tool that can assist with user authentication and data storage
+    \item Investigated libraries featuring charts and graphs to be used on the project dashboard
+\end{itemize}
+
+\section{Challenges}
+I have not made as much progress as anticipated by this point in the semester.
+While I have most of the individual components that I will need to utilize in my web application,
+I have not yet assembled those components into a usable prototype.
+My primary challenge over the last two weeks has been time management as work, other courses, and personal commitments have taken a priority.
+
+\section{Sprint Plans}
+Looking ahead to the next two weeks, I intend to focus more time on this project in order to catch up towards completion.
+For this upcoming sprint, I intend to complete the following:
+\begin{itemize}
+    \item Build the Angular forms for data input and modification
+    \item Assemble the chart and graph components of the dashboard
+    \item Connect the prototype to Firebase to serve as the backend
+\end{itemize}
+
+\end{document}
