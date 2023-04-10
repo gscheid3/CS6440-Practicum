@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crohns-symptom-tracker": {
+      "hosting": {
+        "crohns-symptom-tracker": [
+          "crohns-symptom-tracker"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crohns-symptom-tracker"
+  }
+}

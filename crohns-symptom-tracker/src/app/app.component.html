@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span>Crohn's Symptom Tracker</span>
+</mat-toolbar>
+<div class="content-wrapper">
+  <button (click)="newSymptom()" mat-button>
+    <mat-icon>add</mat-icon> New Symptom
+  </button>
+  <div class="container-wrapper">
+    <div class="container">
+      <h2>Recent Symptoms</h2>
+      <mat-card id="symptomList" class="list">
+        <p class="empty-label" *ngIf="(symptomList | async)?.length === 0">Empty List</p>
+        <app-symptom (edit)="editSymptom($event)" *ngFor="let symptom of symptomList | async" [symptom]="symptom"></app-symptom>
+      </mat-card>
+    </div>
+  </div>
+</div>

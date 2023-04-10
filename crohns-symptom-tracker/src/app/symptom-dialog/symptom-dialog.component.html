@@ -1,0 +1,52 @@
+<mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput [(ngModel)]="data.symptom.date"/>
+</mat-form-field>
+<p>See <a href="https://www.continence.org.au/sites/default/files/2023-02/Bristol_Stool_Chart_PDF-compressed.pdf">Bristol Chart</a> for Stool Type</p>
+<mat-form-field>
+    <mat-label>Stool Type</mat-label>
+    <input matInput [(ngModel)]="data.symptom.stool" />
+</mat-form-field>
+
+<!-- <mat-form-field>
+    <mat-label>Bleeding</mat-label>
+    <input matInput [(ngModel)]="data.symptom.bleeding" />
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Pain</mat-label>
+    <input matInput [(ngModel)]="data.symptom.pain" />
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Appetite</mat-label>
+    <input matInput [(ngModel)]="data.symptom.appetite" />
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Nausea</mat-label>
+    <input matInput [(ngModel)]="data.symptom.nausea" />
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Weight</mat-label>
+    <input matInput [(ngModel)]="data.symptom.weight" />
+</mat-form-field> -->
+  
+<mat-form-field>
+    <mat-label>Notes</mat-label>
+    <textarea matInput [(ngModel)]="data.symptom.notes"></textarea>
+</mat-form-field>
+  
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="{ symptom: data.symptom }">OK</button>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button
+        *ngIf="data.enableDelete"
+        mat-fab
+        color="primary"
+        aria-label="Delete"
+        [mat-dialog-close]="{ symptom: data.symptom, delete: true }">
+        <mat-icon>delete</mat-icon>
+  </button>
+</div>
