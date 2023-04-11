@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-
+import { Chart } from 'chart.js/auto'
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Symptom } from './symptom/symptom';
@@ -19,10 +19,33 @@ const getObservable = (collection: AngularFirestoreCollection<Symptom>) => {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   symptomList = getObservable(this.store.collection('symptomList')) as Observable<Symptom[]>;
 
+  stoolChart: any;
+
   constructor(private dialog: MatDialog, private store: AngularFirestore) {}
+
+  ngOnInit(): void {
+      this.createChart();
+  }
+
+  createChart() {
+    let labels = ['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5', 'Type 6', 'Type 7'];
+    let stoolData = [6, 3, 3, 2, 3, 1, 1];
+
+    this.stoolChart = new Chart('stoolChart', {
+      type: 'doughnut',
+      data: {
+        labels, 
+        datasets: [{
+          label: 'Stool Type Data',
+          data: stoolData
+        }]
+      }
+    });
+
+  }
 
   newSymptom(): void {
     const dialogRef = this.dialog.open(SymptomDialogComponent, {

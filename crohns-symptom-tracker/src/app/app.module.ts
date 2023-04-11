@@ -27,12 +27,14 @@ import { SymptomComponent } from './symptom/symptom.component';
 import { SymptomDialogComponent } from './symptom-dialog/symptom-dialog.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { StoolChartComponent } from './stool-chart/stool-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SymptomComponent,
-    SymptomDialogComponent
+    SymptomDialogComponent,
+    StoolChartComponent
   ],
   imports: [
     BrowserModule,
