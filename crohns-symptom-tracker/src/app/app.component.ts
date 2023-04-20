@@ -23,28 +23,82 @@ export class AppComponent implements OnInit{
   symptomList = getObservable(this.store.collection('symptomList')) as Observable<Symptom[]>;
 
   stoolChart: any;
+  painChart: any;
 
   constructor(private dialog: MatDialog, private store: AngularFirestore) {}
 
   ngOnInit(): void {
-      this.createChart();
+      this.createStoolChart();
+      this.createPainChart();
   }
 
-  createChart() {
+  createStoolChart() {
     let labels = ['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5', 'Type 6', 'Type 7'];
-    let stoolData = [6, 3, 3, 2, 3, 1, 1];
+    let stoolData: number[] = [0, 0, 0, 0, 0, 0, 0];
 
-    this.stoolChart = new Chart('stoolChart', {
-      type: 'doughnut',
-      data: {
-        labels, 
-        datasets: [{
-          label: 'Stool Type Data',
-          data: stoolData
-        }]
+    this.symptomList.subscribe( (symptoms: Symptom[]) => {
+      if (this.stoolChart) {
+        this.stoolChart.destroy();
+        stoolData = [0, 0, 0, 0, 0, 0, 0];
       }
-    });
+      
+      symptoms.forEach( (symptom: Symptom) => {
+        if (symptom.stool) {
+          const stoolType = parseInt(symptom.stool);
+          stoolData[stoolType - 1]++;
+        }
+      });
 
+      this.stoolChart = new Chart('stoolChart', {
+        type: 'doughnut',
+        data: {
+          labels, 
+          datasets: [{
+            label: 'Stool Type Data',
+            data: stoolData
+          }]
+        }
+      });
+    });
+  }
+
+  createPainChart() {
+    let labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+    let painData: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    this.symptomList.subscribe( (symptoms: Symptom[]) => {
+      if (this.painChart) {
+        this.painChart.destroy();
+        painData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      }
+      
+      symptoms.forEach( (symptom: Symptom) => {
+        if (symptom.pain) {
+          const painType = parseInt(symptom.pain);
+          painData[painType - 1]++;
+        }
+      });
+
+      this.painChart = new Chart('painChart', {
+        type: 'bar',
+        data: {
+          labels, 
+          datasets: [{
+            label: 'Pain Level Data',
+            data: painData
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 10
+            }
+          },
+          aspectRatio: 1
+        }
+      });
+    });
   }
 
   newSymptom(): void {

@@ -1,0 +1,43 @@
+\documentclass[letterpaper]{jdf}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@verbatim}
+  {\verbatim@font}
+  {\verbatim@font\small}
+  {}{}
+\makeatother
+
+\pdfstringdefDisableCommands{ \def\\{} }
+
+%\addbibresource{references.bib}
+
+\author{Geoff Scheid}
+\email{gscheid3@gatech.edu}
+\title{CS 6440 - Intro to Health Informatics:\\Sprint 5 - Status Check In 3}
+
+\begin{document}
+
+\maketitle
+
+\section{Accomplishments}
+Over the past two weeks, I have accomplished several of the tasks identified in the last sprint:
+\begin{itemize}
+    \item Build the dashboard in Angular using chart.js
+    \item Build an Angular form to create, read, update, and delete data
+    \item Connect the Angular dashboard to Firebase and deploy to the web
+\end{itemize}
+
+\section{Challenges}
+Much progress has been made since the last sprint, but there are still several challenges before the project is complete.
+The prototype web app is deployed and functional, but its look and feel could be significantly improved.
+Connection to Firebase has allowed for persistent storage of user data, but moving that data back and forth is still a challenge.
+
+\section{Sprint Plans}
+Looking ahead to the final week of development, I intend to focus the remaining time on completing the following:
+\begin{itemize}
+    \item Extend the Angular form input to track more data
+    \item Add more charts or graphs to visually display that new data
+    \item Consider data interoperability for output
+\end{itemize}
+
+\end{document}

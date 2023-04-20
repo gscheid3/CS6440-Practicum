@@ -1,9 +1,11 @@
 <mat-card class="item" *ngIf="symptom" (click)="edit.emit(symptom)">
     <h2>{{ symptom.date }}</h2>
-    <p *ngIf="symptom.stool">Stool Type: {{ symptom.stool }}</p>
-    <!-- <p *ngIf="symptom.bleeding">Bleeding: {{ symptom.bleeding }}</p>
-    <p *ngIf="symptom.pain">Pain Level: {{ symptom.pain }}</p>
-    <p *ngIf="symptom.appetite">Appetite: {{ symptom.appetite }}</p>
+    <div class="content-container">
+        <p *ngIf="symptom.stool">Stool Type: {{ symptom.stool }}</p>
+        <p *ngIf="symptom.bleeding">Bleeding: {{ symptom.bleeding }}</p>
+        <p *ngIf="symptom.pain">Pain Level: {{ symptom.pain }}</p>
+    </div>
+    <!-- <p *ngIf="symptom.appetite">Appetite: {{ symptom.appetite }}</p>
     <p *ngIf="symptom.nausea">Nausea: {{ symptom.nausea }}</p>
     <p *ngIf="symptom.weight">Weight: {{ symptom.weight }}</p> -->
 </mat-card>
