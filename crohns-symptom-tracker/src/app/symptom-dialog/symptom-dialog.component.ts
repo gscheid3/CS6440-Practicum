@@ -20,9 +20,6 @@ export class SymptomDialogComponent {
     this.data.symptom.stool = this.backupSymptom.stool;
     this.data.symptom.bleeding =this.backupSymptom.bleeding;
     this.data.symptom.pain = this.backupSymptom.pain;
-    /* this.data.symptom.appetite = this.backupSymptom.appetite;
-    this.data.symptom.nausea = this.backupSymptom.nausea;
-    this.data.symptom.weight = this.backupSymptom.weight; */
     this.data.symptom.notes = this.backupSymptom.notes;
     this.dialogRef.close(this.data);
   }
