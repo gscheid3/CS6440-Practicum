@@ -1,0 +1,70 @@
+\documentclass[letterpaper]{jdf}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@verbatim}
+  {\verbatim@font}
+  {\verbatim@font\small}
+  {}{}
+\makeatother
+
+\pdfstringdefDisableCommands{ \def\\{} }
+
+%\addbibresource{references.bib}
+
+\author{Geoff Scheid}
+\email{gscheid3@gatech.edu}
+\title{CS 6440 - Intro to Health Informatics:\\Practicum Sprint 6}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    This document summarizes the final submission for the Crohn's Symptom Tracker web app developed for the Practicum Project in CS 6440.
+    Background information is provided on Crohn's disease, the common issues patient's face with tracking their symptoms, 
+    and the web app is proposed as a solution for those issues.
+    The outcome of the web app development is discussed along with potential future development work to improve the web app in order to extend its use to more patients.
+\end{abstract}
+
+\section{Background}
+Crohn's disease is a chronic inflammatory bowel disease that affects millions of people worldwide.
+It is a condition that causes inflammation and irritation in the digestive tract, 
+leading to symptoms such as abdominal pain, diarrhea, and fatigue. 
+Crohn's disease is a complex condition that can have a significant impact on a person's quality of life, 
+and managing it can be challenging.\\
+Additional information on Crohn's disease my be found here:\\
+https://www.crohnscolitisfoundation.org/what-is-crohns-disease
+
+\section{Problem Statement}
+One way to manage Crohn's disease is by tracking symptoms, 
+which can help patients and healthcare providers better understand the disease and how it is affecting the patient. 
+A web app designed for this purpose can make symptom tracking easier and more convenient for patients, 
+and provide valuable insights into the condition for healthcare providers.\\
+A template symptom tracker provided by the Crohn's and Colitis Foundation:\\
+https://www.crohnscolitisfoundation.org/sites/default/files/legacy/assets/pdfs/ibd-symptom-tracker.pdf
+\clearpage
+\section{Solution}
+The goal of this project is to create a web app that allows patients with Crohn's disease to easily track their symptoms, 
+monitor their condition over time, and share their symptom data with their healthcare providers. 
+The app will be designed with the patient's needs in mind, with a user-friendly interface and intuitive features. 
+By empowering patients to take a more active role in managing their condition, 
+the app can help improve their quality of life and overall health outcomes.
+
+\section{Outcome}
+The final submission of this web app accomplishes a portion of the scope in the original solution.
+The web app as designed is able to track stool-related symptoms over time, visually display two important metrics,
+and accessible by any computing device such that a patient can easily show their healthcare provider.
+A user is able to create a new symptom with a date, stool type, bleeding indicator, pain level, and notes.
+All symptoms are displayed in a Recent Symptoms list, and the user can view, modify, or delete an existing symptom from that list.
+The dashboard graphs are populated from the user-provided data on stool type and pain level.
+
+\section{Future Work}
+The scope of this web app could be significantly increased to track more types of symptoms and add more data visualizations.
+Additional symptoms such as appetite, weight gain or loss, and mood would also be useful to track, and visualizations of 
+those data would help a patient understand how those symptoms are trending over time.
+A user authorization service could be added to allow multiple users to create their own profiles and store their own data.
+Additional user authorization could be implemented for healthcare providers to view their patient's data.
+A reporting service could be added to produce reports by request or automatically for review by the patient and provider.
+Reports could be generated with similar visualizations to demonstrate trends over time.
+
+\end{document}
