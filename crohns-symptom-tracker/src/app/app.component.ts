@@ -9,7 +9,10 @@ import { SymptomDialogComponent, SymptomDialogResult } from './symptom-dialog/sy
 const getObservable = (collection: AngularFirestoreCollection<Symptom>) => {
   const subject = new BehaviorSubject<Symptom[]>([]);
   collection.valueChanges({ idField: 'id' }).subscribe((val: Symptom[]) => {
-    subject.next(val);
+    const sortedVal = val.sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime(); 
+    });
+    subject.next(sortedVal);
   });
   return subject;
 };
